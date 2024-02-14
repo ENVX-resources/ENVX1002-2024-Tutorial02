@@ -1,58 +1,86 @@
 [
   {
-    "objectID": "template.html",
-    "href": "template.html",
+    "objectID": "Tutorial_02.html",
+    "href": "Tutorial_02.html",
     "title": "Lab 01",
     "section": "",
-    "text": "Learning outcomes\n\n\n\nCat ipsum dolor sit amet, rub face on everything i love cuddles but pretend not to be evil:\n\nBe a nyan cat, feel great about it, be annoying 24/7 poop rainbows in litter box all day.\nLicks paws jump off balcony, onto stranger’s head cat mojo to pet a cat, rub its belly, endure blood and agony, quietly weep.\nKitten is playing with dead mouse. Thug cat cats are the world cat snacks.\nIf human is on laptop sit on the keyboard.\nCick left leg for ninety minutes, still dirty lick ears lick paws spit up on light gray carpet."
+    "text": "The first step is to create a new project file for week 2. Remember you will need to copy all of your data files into your project directory. For this tutorial we will be using the following data setENVX1002_Data2.xlsx"
   },
   {
-    "objectID": "template.html#welcome",
-    "href": "template.html#welcome",
+    "objectID": "Tutorial_02.html#create-a-new-project-or-rmarkdown-file-for-week-2",
+    "href": "Tutorial_02.html#create-a-new-project-or-rmarkdown-file-for-week-2",
     "title": "Lab 01",
     "section": "",
-    "text": "Learning outcomes\n\n\n\nCat ipsum dolor sit amet, rub face on everything i love cuddles but pretend not to be evil:\n\nBe a nyan cat, feel great about it, be annoying 24/7 poop rainbows in litter box all day.\nLicks paws jump off balcony, onto stranger’s head cat mojo to pet a cat, rub its belly, endure blood and agony, quietly weep.\nKitten is playing with dead mouse. Thug cat cats are the world cat snacks.\nIf human is on laptop sit on the keyboard.\nCick left leg for ninety minutes, still dirty lick ears lick paws spit up on light gray carpet."
+    "text": "The first step is to create a new project file for week 2. Remember you will need to copy all of your data files into your project directory. For this tutorial we will be using the following data setENVX1002_Data2.xlsx"
   },
   {
-    "objectID": "template.html#prerequisites",
-    "href": "template.html#prerequisites",
+    "objectID": "Tutorial_02.html#summarising-data",
+    "href": "Tutorial_02.html#summarising-data",
     "title": "Lab 01",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nSoftware\nCat ipsum dolor sit amet, has closed eyes but still sees you stuff and things but poop on couch. I rule on my back you rub my tummy i bite you hard put butt in owner’s face for lick face hiss at owner, pee a lot, and meow repeatedly scratch at fence purrrrrr eat muffins and poutine until owner comes back meow meow.\nShove bum in owner’s face like camera lens lick butt give attitude steal the warm chair right after you get up make plans to dominate world and then take a nap.\n\n\nReadings\nIf it fits, i sits.\n\nCat ipsum dolor sit amet. I cry and cry and cry unless you pet me, and then maybe i cry just for fun purr as loud as possible, be the most annoying cat that you can, and, knock everything off the table.\nGithub documentation. Help for anyone interested in using Github."
+    "section": "Summarising data",
+    "text": "Summarising data\nToday’s tutorial is about getting used to R and summarising data so we can start to get an understanding of the data such as how spread out it is and what value is the middle of the data. Some of the functions for calculating summary statistics in R are shown in the table below. We will explore some data sets using some of these functions.\n\n\n\n\n\nstatistic\ncommand\n\n\n\n\nmedian\nmedian\n\n\nsample variance\nvar\n\n\nsample standard deviation\nsd\n\n\nminimum\nmin\n\n\nmaximum\nmax\n\n\n1st quartile\nquantile(object,0.25)\n\n\n3rd quartile\nquantile(object,0.75)\n\n\nnumber of observations\nlength\n\n\ninterquartile range\nIQR"
   },
   {
-    "objectID": "template.html#exercise-1",
-    "href": "template.html#exercise-1",
+    "objectID": "Tutorial_02.html#turf---couch",
+    "href": "Tutorial_02.html#turf---couch",
     "title": "Lab 01",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nPet a cat, rub its belly, endure blood and agony, quietly weep, keep rubbing belly \\sigma^2 with love:\n \\sigma^2 = \\frac{\\sum_{i=1}^n (x_i - \\mu)^2}{n}  \\tag{1}\nKitty time, cuddle, no cuddle, cuddle love scratch scratch, but instead of drinking water from the cat bowl, make sure to steal water from the toilet s^2:\n s^2 = \\frac{\\sum_{i=1}^n (x_i - \\bar{x})^2}{n-1}  \\tag{2}\n\nStretch making sure that fluff gets into the owner’s eyes walk on a keyboard?\nMeow meow, i tell my human, so i cat mojo.\n\n\n# R code goes here\nlm(speed ~ dist, data = cars)\n\n\nCall:\nlm(formula = speed ~ dist, data = cars)\n\nCoefficients:\n(Intercept)         dist  \n     8.2839       0.1656  \n\n\n\n\n\n\n\n\n\n\nANSWER\n\n\n\n\nfit &lt;- lm(speed ~ dist, cars)\nsummary(fit)\n\n\nCall:\nlm(formula = speed ~ dist, data = cars)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-7.5293 -2.1550  0.3615  2.4377  6.4179 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  8.28391    0.87438   9.474 1.44e-12 ***\ndist         0.16557    0.01749   9.464 1.49e-12 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 3.156 on 48 degrees of freedom\nMultiple R-squared:  0.6511,    Adjusted R-squared:  0.6438 \nF-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12"
+    "section": "Turf - Couch",
+    "text": "Turf - Couch\nInitially we will be entering in data manually and will explore a single variable!\nA turf laboratory is interested in assessing the sod strength of Common Couchgrass (Cynadon dactylon cv. c29) grown on a sandy loam. Twenty-five samples were taken, and the sod strengths recorded (expressed in Newtons). The data are shown below in order from smallest to largest.\n3.70, 3.81, 3.93, 4.02, 4.10, 3.71, 3.82, 3.98, 4.04, 4.10, 3.76, 3.85, 3.98, 4.05, 4.20, 3.78, 3.86, 3.99, 4.06, 4.21, 3.80, 3.86, 3.99, 4.10, 4.40\nUsing the variable y to indicate sod strength reading, the following values have been calculated:\n\\sum_{i=1}^{25}(y_i-\\overline{y})^2=0.706 and \\sum_{i=1}^{25}y_i=99.1 where \\overline{y} is the sample mean of the data.\n\nUsing the information from the sample above, show what would be a typical value for sod strength of Common Couchgrass?\nState two numerical ways of summarising the spread of a data set. Calculate both of these statistics for the Common Couchgrass data using R.\nUsing R, summarise the data and create a boxplot for the Common Couchgrass data.\n\nEnter in the data manually\n\nsod &lt;- c(3.70, 3.81, 3.93, 4.02, 4.10, 3.71, 3.82, 3.98, 4.04, 4.10, 3.76, 3.85, 3.98, 4.05, 4.20, 3.78, 3.86, 3.99, 4.06, 4.21, 3.80, 3.86, 3.99, 4.10, 4.40)\n\nSummarise the data\n\nsummary(sod) ## 6 number summary\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  3.700   3.820   3.980   3.964   4.060   4.400 \n\nvar(sod) ## Variance\n\n[1] 0.02941667\n\nsd(sod) ## Standard deviation\n\n[1] 0.1715129\n\n\nGenerate a boxplot of the data\n\nboxplot(sod, horizontal = TRUE)"
   },
   {
-    "objectID": "template.html#exercise-2",
-    "href": "template.html#exercise-2",
+    "objectID": "Tutorial_02.html#tuna---two-samples",
+    "href": "Tutorial_02.html#tuna---two-samples",
     "title": "Lab 01",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nYet sleep on my human’s head. Ooooh feather moving feather! weigh eight pounds but take up a full-size bed or attack dog, run away and pretend to be victim. Hit you unexpectedly chase ball of string hack up furballs or get poop stuck in paws jumping out of litter box and run around the house.\nScream meowing and smearing hot cat mud all over but ask to go outside and ask to come inside and ask to go outside and ask to come inside, for murr i hate humans they are so annoying need to check on human, have not seen in an hour might be dead oh look, human is alive, hiss at human, feed me.\n\n\n\n\n\n\nFigure 1: The University of Sydney logo in black with a specified width."
+    "section": "Tuna - Two samples",
+    "text": "Tuna - Two samples\nNow we will be continue entering in the data manually but will explore two variables!\nThe table that follows gives the weights of two samples of albacore tuna, Thunnus alaluga (in kg). How would you characterize the differences in the samples?\nHint: Use R to calculate the sample mean, median, range and standard deviation or variance for each sample.\nSample1 = 8.9, 9.6, 11.2, 9.4, 9.9, 10.9, 10.4, 11.0, 9.7 Sample2 = 3.1, 17.0, 9.9, 5.1, 18.0, 3.8, 10.0, 2.0, 21.2\n\nSample1 &lt;- c(8.9, 9.6, 11.2, 9.4, 9.9, 10.9, 10.4, 11.0, 9.7)\nSample2 &lt;- c(3.1, 17.0, 9.9, 5.1, 18.0, 3.8, 10.0, 2.0, 21.2)\n\nsummary(Sample1)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   8.90    9.60    9.90   10.11   10.90   11.20 \n\nsummary(Sample2)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   2.00    3.80    9.90   10.01   17.00   21.20 \n\nsd(Sample1)\n\n[1] 0.8006941\n\nsd(Sample2)\n\n[1] 7.180781"
   },
   {
-    "objectID": "template.html#exercise-3",
-    "href": "template.html#exercise-3",
+    "objectID": "Tutorial_02.html#exploratory-data-analysis",
+    "href": "Tutorial_02.html#exploratory-data-analysis",
     "title": "Lab 01",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nReally likes hummus there’s a forty year old lady there let us feast. Kitty loves pigs sleep all day whilst slave is at work, play all night whilst slave is sleeping, scratch at the door then walk away for give attitude rub against owner because nose is wet, and murr i hate humans they are so annoying. Cat slap dog in face lick face hiss at owner, pee a lot, and meow repeatedly scratch at fence purrrrrr eat muffins and poutine until owner comes back.\n\n\nShow the code\nlibrary(ggplot2)\nggplot(iris, aes(x = Sepal.Length,\n                 y = Sepal.Width,\n                 colour = Species)) +\n  geom_point() +\n  theme_minimal()\n\n\n\n\n\n\n\n\nFigure 2: A figure with a longer caption. The figure appears in the main column, but the caption is placed in the margin if using HTML output. In the PDF output, the caption remains in the main column.\n\n\n\n\n\n\n\n\n\n\n\nStep 1: Sit on human\n\n\n\nWhatever lick plastic bags am in trouble, roll over, too cute for human to get mad or claw at curtains stretch and yawn nibble on tuna ignore human bite human hand yet trip owner up in kitchen i want food.\n\n\n\n\n\n\n\n\nStep 2: Purrrr\n\n\n\n\n\nWalk on keyboard when in doubt, wash sleep on dog bed, force dog to sleep on floor so sitting in a box yet i can haz so fall asleep on the washing machine get scared by sudden appearance of cucumber.\n\n\n\n\n\n\n\n\n\nStep 3: Show belly\n\n\n\n\n\n\nPoop in litter box, scratch the walls leave hair everywhere crash against wall but walk away like nothing happened.\nSleep all day whilst slave is at work, play all night whilst slave is sleeping.\nGet suspicious of own shadow then go play with toilette paper tweeting a baseball."
+    "section": "Exploratory data analysis",
+    "text": "Exploratory data analysis\nNow we will be reading in data from an excel spreadsheet and will explore a single variable. To do this, we will need to read in our first package.\nWe will perform exploratory data analysis. The dataset is 39 measurements of water chemistry in streams published by Lovett et al. (2000). We will focus on the sulphate concentration. The data set is used by Quinn & Keough (2002) to describe summary statistics, and confidence intervals [Box 2.2, p. 21].\nReference: Lovett GM, Weathers KC & Sobczak WV (2000) Ecological Applications 10: 73-84."
   },
   {
-    "objectID": "template.html#review",
-    "href": "template.html#review",
+    "objectID": "Tutorial_02.html#installing-packages",
+    "href": "Tutorial_02.html#installing-packages",
     "title": "Lab 01",
-    "section": "Review",
-    "text": "Review\nMeow and walk away find something else more interesting, and meow for food, then when human fills food dish, take a few bites of food and continue meowing bird bird bird bird bird bird human why take bird out i could have eaten that, or cat slap dog in face jump on counter removed by human jump on counter again removed by human meow before jumping on counter this time to let the human know am coming back yet sleep.\n\n\n\n\n\n\nWarning\n\n\n\nPushed the mug off the table pretend you want to go out but then don’t love blinks and purr purr purr purr yawn carefully drink from water glass and then spill it everywhere and proceed to lick the puddle cat slap dog in face snob you for another person."
+    "section": "Installing packages",
+    "text": "Installing packages\nAll of the functions and data sets in R are organised into packages. There are the standard (or base) packages which are part of the source code - the functions and data sets that make up these packages are automatically available when R is opened. There are also many contributed packages. These have been written by many different authors, often to implement methods that are not available in the base packages. If you are unable to find a method in the base packages, you might be able to find it in a contributed package. The Comprehensive R Archive Network (CRAN) site (http://cran.r-project.org/) is where many contributed packages can be downloaded. Click on packages on the left hand side. We will download readxl package in this class using the install.packages command and we then load the package into R using the library command. This package is used to be able to read in Microsoft Excel files into R.\n\n# install.packages(\"readxl\")\nlibrary(readxl)"
   },
   {
-    "objectID": "template.html#thanks",
-    "href": "template.html#thanks",
+    "objectID": "Tutorial_02.html#importing-data-from-external-files",
+    "href": "Tutorial_02.html#importing-data-from-external-files",
     "title": "Lab 01",
-    "section": "Thanks!",
-    "text": "Thanks!\n\nAttribution\nThis lab was developed using resources that are available under a Creative Commons Attribution 4.0 International license, made available on the SOLES Open Educational Resources repository."
+    "section": "Importing data from external files",
+    "text": "Importing data from external files\nThe most common way to enter data into R is to import it from an external file. In this example we will import the data found in the worksheet called SO4 found in the ENVX1002_Data2.xlsx file that can be downloaded from the Tutorial and Computer Lab Page on Canvas.\nAfter loading the readxl package, you can import the file as a data frame using the read_excel function. Note that you need to specify which worksheet you want to import.\n\nwater&lt;-read_excel(\"ENVX1002_Data2.xlsx\", sheet = \"SO4\")\n\nThe above code creates a data frame object which consists of columns of data which may be of different types, e.g. character, numeric. In the code above we have called the object water.\nTo check the data has been read in properly it is recommended to use the str function, which shows the data type for each of the columns and gives the first 10 values for each column. The data frame water has only one column called SO4 and is numerical data, denoted by num.\n\nstr(water)\n\ntibble [39 × 1] (S3: tbl_df/tbl/data.frame)\n $ SO4: num [1:39] 50.6 55.4 56.5 57.5 58.3 63 66.5 64.5 63.4 58.4 ..."
+  },
+  {
+    "objectID": "Tutorial_02.html#referencing-data-in-data-frames",
+    "href": "Tutorial_02.html#referencing-data-in-data-frames",
+    "title": "Lab 01",
+    "section": "Referencing data in data frames",
+    "text": "Referencing data in data frames\nIndividual values within data frames can be accessed by specifying its row and column number in square brackets, [ ]. The 1st number is the row number and the 2nd number specifies the column number. For example, to access the third value in the SO4 data we would use:\n\nwater[3,1]\n\n# A tibble: 1 × 1\n    SO4\n  &lt;dbl&gt;\n1  56.5\n\n\nIn this example 3 represents row 3, and 1 represents column 1. Entire columns of data can be referenced by leaving the row number blank:\n\nwater[,1]\n\n# A tibble: 39 × 1\n     SO4\n   &lt;dbl&gt;\n 1  50.6\n 2  55.4\n 3  56.5\n 4  57.5\n 5  58.3\n 6  63  \n 7  66.5\n 8  64.5\n 9  63.4\n10  58.4\n# ℹ 29 more rows\n\n\nIf the data frame contains column names, it is also possible to refer to columns by name, using the $ sign:\n\nwater$SO4\n\n [1] 50.6 55.4 56.5 57.5 58.3 63.0 66.5 64.5 63.4 58.4 70.6 56.9 56.7 56.0 60.4\n[16] 67.8 70.8 58.6 59.5 55.5 63.4 57.8 55.1 65.5 62.7 72.1 63.4 68.5 65.8 69.2\n[31] 66.7 59.3 61.1 62.1 70.4 62.1 64.6 61.4 56.9\n\n\nTo check for names in a data frame using the names command:\n\nnames(water)\n\n[1] \"SO4\"\n\n\nOr use the str function. To apply a function to a particular column in the data frame we need to specify the column, for example:\n\nsummary(water$SO4)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  50.60   57.65   62.10   61.92   65.65   72.10"
+  },
+  {
+    "objectID": "Tutorial_02.html#graphical-summaries",
+    "href": "Tutorial_02.html#graphical-summaries",
+    "title": "Lab 01",
+    "section": "Graphical summaries",
+    "text": "Graphical summaries\nWe can create histograms easily by using the hist function.\n\nhist(water$SO4)\n\n\n\n\n\n\n\n\nNow we need to label the figure properly. The arguments for labelling are xlab for the x-axis, ylab for the y-axis and main for the main title.\nThe y-axis is fine but the x-axis is incorrect. The standard way to label axes is by the name of property and also units. In this case it is sulphate concentration in parts per million.\n\nhist(water$SO4, xlab= \"Suplhate conc. (ppm)\")\n\n\n\n\n\n\n\n\nIn scientific publications it is not normal practice to display the title within the figure itself so to remove the default title of histogram we can use the following code.\n\nhist(water$SO4, xlab=\"Suplhate conc. (ppm)\", main=\" \")\n\n\n\n\nFigure X. Histogram of SO4 data\n\n\n\nboxplot(water$SO4, xlab=\"Suplhate conc. (ppm)\", main=\" \")\n\n\n\n\nFigure X. Histogram of SO4 data\n\n\n\n\nNow we have a figure we might want to export it as an image file to insert in a MS Word document for a report.\nIn the R graphics window you can go to the menu (File &gt; Save As &gt;&gt; figure.png). This saves the image as a png file which is good for using with MS Word.\nThe same can be achieved with the command line.\n\npng(file=\"histogram_SO4.png\")  # tells R the name of the file \nhist (water$SO4, xlab=\"Sulphate conc. (ppm)\",main=\" \") # plots\ndev.off()   # turns off graphics window\n\nNote that the image file, if you use the commands above, will be saved to your project directory. You can now go to MS Word and use the menu to insert your picture (Insert &gt; Picture).\nThe table below gives heuristic rules about which graphical summary to use based on the number of observations.\n\n\n\n\n\nobservations\ngraphics\ncommand\n\n\n\n\n1-5\nplot raw data\nstripchart\n\n\n6-20\nboxplot\nboxplot\n\n\n20 or more\nhistogram\nhist"
+  },
+  {
+    "objectID": "Tutorial_02.html#advanced---ggplot2-package",
+    "href": "Tutorial_02.html#advanced---ggplot2-package",
+    "title": "Lab 01",
+    "section": "Advanced - ggplot2 package",
+    "text": "Advanced - ggplot2 package\nWe can make even nicer graphics using the ggplot2 package. Repeating the above example we get:\n\n# install.packages(ggplot2)\nlibrary(ggplot2)\n\nggplot(water, aes(SO4)) +\n  geom_histogram(bins = 10, fill = \"blue\") +\n  xlab(\"Sulphate concentration (ppm)\")\n\n\n\n\n\n\n\n\nChange the number of bins to 5 and change the colour to red."
+  },
+  {
+    "objectID": "Tutorial_02.html#end-of-tutorial",
+    "href": "Tutorial_02.html#end-of-tutorial",
+    "title": "Lab 01",
+    "section": "End of tutorial",
+    "text": "End of tutorial"
   }
 ]
