@@ -1,0 +1,221 @@
+---
+title: Lab 01
+subtitle: "UNIT1234"
+description: The University of Sydney
+date: today
+date-format: "[Semester 1,] YYYY"
+---
+
+## Create a new project or rmarkdown file for week 2
+
+The first step is to create a new project file for week 2. Remember you will need to copy all of your data files into your project directory. For this tutorial we will be using the following data set`ENVX1002_Data2.xlsx`
+
+## Summarising data
+
+Today's tutorial is about getting used to R and summarising data so we can start to get an understanding of the data such as how spread out it is and what value is the middle of the data. Some of the functions for calculating summary statistics in R are shown in the table below. We will explore some data sets using some of these functions. 
+
+```{r, echo=FALSE, warning=FALSE}
+statistic<-c("median","sample variance","sample standard deviation","minimum","maximum","1st quartile","3rd quartile","number of observations","interquartile range")
+command<-c("median","var","sd","min","max","quantile(object,0.25)","quantile(object,0.75)","length","IQR")
+tdata<-cbind(statistic,command)
+library(knitr)
+kable(tdata)
+```
+
+## Turf - Couch
+
+Initially we will be entering in data manually and will explore a single variable!
+
+A turf laboratory is interested in assessing the sod strength of Common Couchgrass (Cynadon dactylon cv. c29) grown on a sandy loam. Twenty-five samples were taken, and the sod strengths recorded (expressed in Newtons). The data are shown below in order from smallest to largest.
+
+3.70, 3.81, 3.93, 4.02, 4.10, 3.71, 3.82, 3.98, 4.04, 4.10, 3.76, 3.85, 3.98, 4.05, 4.20, 3.78, 3.86, 3.99, 4.06, 4.21, 3.80, 3.86, 3.99, 4.10, 4.40
+
+Using the variable *y* to indicate sod strength reading, the following values have been calculated:
+
+$\sum_{i=1}^{25}(y_i-\overline{y})^2=0.706$ and $\sum_{i=1}^{25}y_i=99.1$
+where $\overline{y}$ is the sample mean of the data.
+
+a. Using the information from the sample above, show what would be a typical value for sod strength of Common Couchgrass? 
+
+b. State two numerical ways of summarising the spread of a data set. Calculate both of these statistics for the Common Couchgrass data using R.
+
+c. Using R, summarise the data and create a boxplot for the Common Couchgrass data.
+
+Enter in the data manually
+
+```{r}
+sod <- c(3.70, 3.81, 3.93, 4.02, 4.10, 3.71, 3.82, 3.98, 4.04, 4.10, 3.76, 3.85, 3.98, 4.05, 4.20, 3.78, 3.86, 3.99, 4.06, 4.21, 3.80, 3.86, 3.99, 4.10, 4.40)
+``` 
+
+Summarise the data 
+
+```{r}
+summary(sod) ## 6 number summary
+
+var(sod) ## Variance
+
+sd(sod) ## Standard deviation
+```
+
+Generate a boxplot of the data
+
+```{r}
+boxplot(sod, horizontal = TRUE)
+```
+
+## Tuna - Two samples
+
+Now we will be continue entering in the data manually but will explore two variables!
+
+The table that follows gives the weights of two samples of albacore tuna, *Thunnus alaluga* (in kg). How would you characterize the differences in the samples?
+
+Hint: Use R to calculate the sample mean, median, range and standard deviation or variance for each sample.
+
+Sample1 = 8.9, 9.6, 11.2, 9.4, 9.9, 10.9, 10.4, 11.0, 9.7
+Sample2 = 3.1, 17.0, 9.9, 5.1, 18.0, 3.8, 10.0,  2.0, 21.2
+
+```{r}
+Sample1 <- c(8.9, 9.6, 11.2, 9.4, 9.9, 10.9, 10.4, 11.0, 9.7)
+Sample2 <- c(3.1, 17.0, 9.9, 5.1, 18.0, 3.8, 10.0, 2.0, 21.2)
+
+summary(Sample1)
+summary(Sample2)
+
+sd(Sample1)
+sd(Sample2)
+```
+
+
+## Exploratory data analysis
+
+Now we will be reading in data from an excel spreadsheet and will explore a single variable. To do this, we will need to read in our first package.
+
+We will perform exploratory data analysis. The dataset is 39 measurements of water chemistry in streams published by Lovett et al. (2000).  We will focus on the sulphate concentration.  The data set is used by Quinn & Keough (2002)  to describe summary statistics, and confidence intervals [Box 2.2, p. 21].
+
+Reference: Lovett GM, Weathers KC & Sobczak WV (2000)  Ecological Applications 10: 73-84.
+
+
+## Installing packages
+
+All of the functions and data sets in R are organised into packages.  There are the standard (or base) packages which are part of the source code - the functions and data sets that make up these packages are automatically available when R is opened.  There are also many contributed packages.  These have been written by many different authors, often to implement methods that are not available in the base packages.  If you are unable to find a method in the base packages, you might be able to find it in a contributed package.  The Comprehensive R Archive Network (CRAN) site (http://cran.r-project.org/) is where many contributed packages can be downloaded.  Click on packages on the left hand side. We will download `readxl` package in this class using the `install.packages` command and we then load the package into R using the `library` command. This package is used to be able to read in Microsoft Excel files into R.
+
+```{r}
+# install.packages("readxl")
+library(readxl)
+```
+
+## Importing data from external files
+
+The most common way to enter data into R is to import it from an external file.  In this example we will import the data found in the worksheet called *SO4* found in the **ENVX1002_Data2.xlsx** file that can be downloaded from the *Tutorial* and *Computer Lab* Page on Canvas. 
+
+After loading the `readxl` package, you can import the file as a data frame using the `read_excel` function. Note that you need to specify which worksheet you want to import. 
+
+```{r, warning=FALSE}
+water<-read_excel("ENVX1002_Data2.xlsx", sheet = "SO4")
+```
+
+The above code creates a data frame object which consists of columns of data which may be of different types, e.g. character, numeric.  In the code above we have called the object `water`.
+
+To check the data has been read in properly it is recommended to use the `str` function, which shows the data type for each of the columns and gives the first 10 values for each column.  The data frame `water` has only one column called `SO4` and is numerical data, denoted by `num`.
+
+``` {r}
+str(water)
+```
+
+## Referencing data in data frames
+
+Individual values within data frames can be accessed by specifying its row and column number in square brackets, [ ].  The 1st number is the row number and the 2nd number specifies the column number.  For example, to access the third value in the `SO4` data we would use:
+
+```{r}
+water[3,1]
+```
+
+In this example 3 represents row 3, and 1 represents column 1.
+Entire columns of data can be referenced by leaving the row number blank:
+
+```{r}
+water[,1]
+```
+
+If the data frame contains column names, it is also possible to refer to columns by name, using the $ sign:
+
+```{r}
+water$SO4
+```
+
+To check for names in a data frame using the `names` command:
+
+```{r}
+names(water)
+```
+
+Or use the `str` function.  To apply a function to a particular column in the data frame we need to specify the column, for example:
+
+```{r}
+summary(water$SO4)
+```
+
+## Graphical summaries
+
+We can create histograms easily by using the `hist` function.
+```{r}
+hist(water$SO4)
+```
+
+Now we need to label the figure properly.  The arguments for labelling are `xlab` for the x-axis, `ylab` for the y-axis and `main` for the main title. 
+
+The y-axis is fine but the x-axis is incorrect.  The standard way to label axes is by the name of property and also units.  In this case it is sulphate concentration in parts per million. 
+
+```{r}
+hist(water$SO4, xlab= "Suplhate conc. (ppm)")
+```
+
+In scientific publications it is not normal practice to display the title within the figure itself so to remove the default title of histogram we can use the following code.
+
+```{r, fig.cap = "Figure X. Histogram of SO4 data"}
+hist(water$SO4, xlab="Suplhate conc. (ppm)", main=" ")
+boxplot(water$SO4, xlab="Suplhate conc. (ppm)", main=" ")
+```
+
+Now we have a figure we might want to export it as an image file to insert in a **MS Word** document for a report.
+
+In the R graphics window you can go to the menu (**File > Save As >> figure.png**).  This saves the image as a **png** file which is good for using with **MS Word**.
+
+The same can be achieved with the command line.
+
+```{r, results='hide'}
+png(file="histogram_SO4.png")  # tells R the name of the file 
+hist (water$SO4, xlab="Sulphate conc. (ppm)",main=" ") # plots
+dev.off()   # turns off graphics window
+```
+
+Note that the image file, if you use the commands above, will be saved to your project directory.  You can now go to **MS Word** and use the menu to insert your picture (**Insert > Picture**).
+
+The table below gives heuristic rules about which graphical summary to use based on the number of observations.  
+
+```{r, echo=FALSE, warning=FALSE}
+observations<-c("1-5","6-20","20 or more")
+graphics<-c("plot raw data","boxplot","histogram")
+command<-c("stripchart","boxplot","hist")
+gdata<-cbind(observations,graphics,command)
+library(knitr)
+kable(gdata)
+```
+
+## Advanced - ggplot2 package
+
+We can make even nicer graphics using the `ggplot2` package. Repeating the above example we get:
+
+```{r}
+# install.packages(ggplot2)
+library(ggplot2)
+
+ggplot(water, aes(SO4)) +
+  geom_histogram(bins = 10, fill = "blue") +
+  xlab("Sulphate concentration (ppm)")
+
+```
+
+Change the number of bins to 5 and change the colour to red.
+
+## End of tutorial
