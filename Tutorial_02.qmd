@@ -10,6 +10,8 @@ date-format: "[Semester 1,] YYYY"
 
 The first step is to create a new project file for week 2. Remember you will need to copy all of your data files into your project directory. For this tutorial we will be using the following data set`ENVX1002_Data2.xlsx`
 
+[Download Data File](./data/ENVX1002_Data2.xlsx)
+
 ## Summarising data
 
 Today's tutorial is about getting used to R and summarising data so we can start to get an understanding of the data such as how spread out it is and what value is the middle of the data. Some of the functions for calculating summary statistics in R are shown in the table below. We will explore some data sets using some of these functions. 
@@ -97,7 +99,7 @@ Reference: Lovett GM, Weathers KC & Sobczak WV (2000)  Ecological Applications 1
 
 ## Installing packages
 
-All of the functions and data sets in R are organised into packages.  There are the standard (or base) packages which are part of the source code - the functions and data sets that make up these packages are automatically available when R is opened.  There are also many contributed packages.  These have been written by many different authors, often to implement methods that are not available in the base packages.  If you are unable to find a method in the base packages, you might be able to find it in a contributed package.  The Comprehensive R Archive Network (CRAN) site (http://cran.r-project.org/) is where many contributed packages can be downloaded.  Click on packages on the left hand side. We will download `readxl` package in this class using the `install.packages` command and we then load the package into R using the `library` command. This package is used to be able to read in Microsoft Excel files into R.
+All of the functions and data sets in R are organised into packages.  There are the standard (or base) packages which are part of the source code - the functions and data sets that make up these packages are automatically available when R is opened.  There are also many contributed packages.  These have been written by many different authors, often to implement methods that are not available in the base packages.  If you are unable to find a method in the base packages, you might be able to find it in a contributed package.  The Comprehensive R Archive Network (CRAN) site <http://cran.r-project.org/> is where many contributed packages can be downloaded.  Click on packages on the left hand side. We will download `readxl` package in this class using the `install.packages` command and we then load the package into R using the `library` command. This package is used to be able to read in Microsoft Excel files into R.
 
 ```{r}
 # install.packages("readxl")
@@ -111,7 +113,7 @@ The most common way to enter data into R is to import it from an external file. 
 After loading the `readxl` package, you can import the file as a data frame using the `read_excel` function. Note that you need to specify which worksheet you want to import. 
 
 ```{r, warning=FALSE}
-water<-read_excel("ENVX1002_Data2.xlsx", sheet = "SO4")
+water<-read_excel("data/ENVX1002_Data2.xlsx", sheet = "SO4")
 ```
 
 The above code creates a data frame object which consists of columns of data which may be of different types, e.g. character, numeric.  In the code above we have called the object `water`.
@@ -130,8 +132,8 @@ Individual values within data frames can be accessed by specifying its row and c
 water[3,1]
 ```
 
-In this example 3 represents row 3, and 1 represents column 1.
-Entire columns of data can be referenced by leaving the row number blank:
+- In this example 3 represents row 3, and 1 represents column 1.
+- Entire columns of data can be referenced by leaving the row number blank:
 
 ```{r}
 water[,1]
@@ -158,6 +160,7 @@ summary(water$SO4)
 ## Graphical summaries
 
 We can create histograms easily by using the `hist` function.
+
 ```{r}
 hist(water$SO4)
 ```
