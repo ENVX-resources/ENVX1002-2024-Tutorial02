@@ -6,7 +6,7 @@ date: today
 date-format: "[Semester 1,] YYYY"
 ---
 
-## Create a new project or rmarkdown file for week 2
+## Create a new project for week 2
 
 The first step is to create a new project file for week 2. Remember you will need to copy all of your data files into your project directory. For this tutorial we will be using the following data set`ENVX1002_Data2.xlsx`
 
@@ -32,12 +32,7 @@ A turf laboratory is interested in assessing the sod strength of Common Couchgra
 
 3.70, 3.81, 3.93, 4.02, 4.10, 3.71, 3.82, 3.98, 4.04, 4.10, 3.76, 3.85, 3.98, 4.05, 4.20, 3.78, 3.86, 3.99, 4.06, 4.21, 3.80, 3.86, 3.99, 4.10, 4.40
 
-Using the variable *y* to indicate sod strength reading, the following values have been calculated:
-
-$\sum_{i=1}^{25}(y_i-\overline{y})^2=0.706$ and $\sum_{i=1}^{25}y_i=99.1$
-where $\overline{y}$ is the sample mean of the data.
-
-a. Using the information from the sample above, show what would be a typical value for sod strength of Common Couchgrass? 
+a. Using the information from the sample above and R, show what would be a typical value for sod strength of Common Couchgrass? 
 
 b. State two numerical ways of summarising the spread of a data set. Calculate both of these statistics for the Common Couchgrass data using R.
 
