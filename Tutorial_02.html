@@ -118,49 +118,6 @@ background: #FCEDE2;
       }
 </style>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="site_libs/quarto-contrib/quarto-project/soles-assignment/assets/css/styles.css">
 </head>
@@ -204,7 +161,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#create-a-new-project-or-rmarkdown-file-for-week-2" id="toc-create-a-new-project-or-rmarkdown-file-for-week-2" class="nav-link active" data-scroll-target="#create-a-new-project-or-rmarkdown-file-for-week-2">Create a new project or rmarkdown file for week 2</a></li>
+  <li><a href="#create-a-new-project-for-week-2" id="toc-create-a-new-project-for-week-2" class="nav-link active" data-scroll-target="#create-a-new-project-for-week-2">Create a new project for week 2</a></li>
   <li><a href="#summarising-data" id="toc-summarising-data" class="nav-link" data-scroll-target="#summarising-data">Summarising data</a></li>
   <li><a href="#turf---couch" id="toc-turf---couch" class="nav-link" data-scroll-target="#turf---couch">Turf - Couch</a></li>
   <li><a href="#tuna---two-samples" id="toc-tuna---two-samples" class="nav-link" data-scroll-target="#tuna---two-samples">Tuna - Two samples</a></li>
@@ -229,8 +186,8 @@ window.Quarto = {
 
 
 
-<section id="create-a-new-project-or-rmarkdown-file-for-week-2" class="level2">
-<h2 class="anchored" data-anchor-id="create-a-new-project-or-rmarkdown-file-for-week-2">Create a new project or rmarkdown file for week 2</h2>
+<section id="create-a-new-project-for-week-2" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-new-project-for-week-2">Create a new project for week 2</h2>
 <p>The first step is to create a new project file for week 2. Remember you will need to copy all of your data files into your project directory. For this tutorial we will be using the following data set<code>ENVX1002_Data2.xlsx</code></p>
 <p><a href="./data/ENVX1002_Data2.xlsx">Download Data File</a></p>
 </section>
@@ -293,10 +250,8 @@ window.Quarto = {
 <p>Initially we will be entering in data manually and will explore a single variable!</p>
 <p>A turf laboratory is interested in assessing the sod strength of Common Couchgrass (Cynadon dactylon cv. c29) grown on a sandy loam. Twenty-five samples were taken, and the sod strengths recorded (expressed in Newtons). The data are shown below in order from smallest to largest.</p>
 <p>3.70, 3.81, 3.93, 4.02, 4.10, 3.71, 3.82, 3.98, 4.04, 4.10, 3.76, 3.85, 3.98, 4.05, 4.20, 3.78, 3.86, 3.99, 4.06, 4.21, 3.80, 3.86, 3.99, 4.10, 4.40</p>
-<p>Using the variable <em>y</em> to indicate sod strength reading, the following values have been calculated:</p>
-<p><span class="math inline">\sum_{i=1}^{25}(y_i-\overline{y})^2=0.706</span> and <span class="math inline">\sum_{i=1}^{25}y_i=99.1</span> where <span class="math inline">\overline{y}</span> is the sample mean of the data.</p>
 <ol type="a">
-<li><p>Using the information from the sample above, show what would be a typical value for sod strength of Common Couchgrass?</p></li>
+<li><p>Using the information from the sample above and R, show what would be a typical value for sod strength of Common Couchgrass?</p></li>
 <li><p>State two numerical ways of summarising the spread of a data set. Calculate both of these statistics for the Common Couchgrass data using R.</p></li>
 <li><p>Using R, summarise the data and create a boxplot for the Common Couchgrass data.</p></li>
 </ol>
